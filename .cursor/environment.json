@@ -1,0 +1,26 @@
+{
+  "$schema": "https://cursor.com/schemas/environment.schema.json",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "install": "corepack enable && yarn install --immutable",
+  "terminals": [
+    {
+      "name": "frontend",
+      "command": "yarn start",
+      "description": "Webpack dev server that watches and rebuilds the frontend."
+    },
+    {
+      "name": "backend",
+      "command": "make run",
+      "description": "Backend with hot reload on localhost:3000 (admin/admin)."
+    }
+  ],
+  "ports": [
+    {
+      "name": "grafana",
+      "port": 3000
+    }
+  ]
+}
